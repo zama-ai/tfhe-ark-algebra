@@ -18,7 +18,7 @@ metadata.release.workspace = true
 [dependencies]
 ark-std.workspace = true
 ark-serialize.workspace = true
-ark-ff.workspace = true
+tfhe-ark-ff.workspace = true
 ark-ec.workspace = true
 num-bigint.workspace = true
 num-integer.workspace = true
@@ -31,4 +31,4 @@ sha2.workspace = true
 
 [features]
 default = []
-std = [ "ark-std/std", "ark-ff/std", "ark-serialize/std", "ark-ec/std" ]
+std = [ "ark-std/std", "tfhe-ark-ff/std", "ark-serialize/std", "ark-ec/std" ]

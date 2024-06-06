@@ -17,7 +17,7 @@ metadata.release.workspace = true
 
 [dependencies]
 ark-std = { workspace = true, default-features = false }
-ark-ff = { workspace = true, default-features = false }
+tfhe-ark-ff = { workspace = true, default-features = false }
 ark-ec = { workspace = true, default-features = false }
 
 [dev-dependencies]
@@ -28,9 +28,9 @@ ark-algebra-bench-templates = { workspace = true, default-features = false }
 [features]
 default = []
 
-asm = [ "ark-ff/asm" ]
+asm = [ "tfhe-ark-ff/asm" ]
 
-parallel = [ "ark-ff/parallel", "ark-ec/parallel", "ark-std/parallel" ]
+parallel = [ "tfhe-ark-ff/parallel", "ark-ec/parallel", "ark-std/parallel" ]
 
 bls12_381_scalar_field = []
 bls12_381_curve = [ "bls12_381_scalar_field" ]

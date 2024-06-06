@@ -22,10 +22,10 @@ metadata.release.workspace = true
 criterion = { workspace = true, features = [ "html_reports" ] }
 ark-std.workspace = true
 ark-ec.workspace = true
-ark-ff.workspace = true
+tfhe-ark-ff.workspace = true
 ark-serialize.workspace = true
 paste.workspace = true
 
 [features]
-asm = [ "ark-ff/asm" ]
-parallel = [ "ark-std/parallel", "ark-ff/parallel",  "ark-ec/parallel", ]
+asm = [ "tfhe-ark-ff/asm" ]
+parallel = [ "ark-std/parallel", "tfhe-ark-ff/parallel",  "ark-ec/parallel", ]

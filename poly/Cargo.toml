@@ -16,7 +16,7 @@ metadata.release.workspace = true
 keywords = ["cryptography", "finite-fields", "fft", "polynomials"]
 
 [dependencies]
-ark-ff.workspace = true
+tfhe-ark-ff.workspace = true
 ark-serialize = { workspace = true, features = ["derive"] }
 ark-std.workspace = true
 rayon = { workspace = true, optional = true }
@@ -30,8 +30,8 @@ criterion = "0.5.1"
 
 [features]
 default = []
-std = [ "ark-std/std", "ark-ff/std" ]
-parallel = [ "std", "ark-ff/parallel", "rayon", "ark-std/parallel" ]
+std = [ "ark-std/std", "tfhe-ark-ff/std" ]
+parallel = [ "std", "tfhe-ark-ff/parallel", "rayon", "ark-std/parallel" ]
 
 
 [[bench]]

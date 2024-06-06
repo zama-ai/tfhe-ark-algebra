@@ -18,7 +18,7 @@ keywords = ["cryptography", "elliptic-curves", "pairing"]
 [dependencies]
 ark-std.workspace = true
 ark-serialize.workspace = true
-ark-ff.workspace = true
+tfhe-ark-ff.workspace = true
 ark-poly.workspace = true
 derivative = { workspace = true, features = ["use_core"] }
 num-bigint.workspace = true
@@ -40,5 +40,5 @@ hex.workspace = true
 
 [features]
 default = []
-std = [ "ark-std/std", "ark-ff/std", "ark-serialize/std" ]
+std = [ "ark-std/std", "tfhe-ark-ff/std", "ark-serialize/std" ]
 parallel = [ "std", "rayon", "ark-std/parallel" ]

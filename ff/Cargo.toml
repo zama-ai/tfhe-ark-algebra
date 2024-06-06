@@ -1,5 +1,5 @@
 [package]
-name = "ark-ff"
+name = "tfhe-ark-ff"
 description = "A library for finite fields"
 keywords = ["cryptography", "finite-fields" ]
 documentation = "https://docs.rs/ark-ff/"

@@ -1,5 +1,7 @@
 <h1 align="center">arkworks::algebra</h1>
 
+<h3 align="center">This is not the original work of arkworks. This fork is meant to patch some crates to be used in tfhe-rs library</h3>
+
 <p align="center">
     <img src="https://github.com/arkworks-rs/algebra/workflows/CI/badge.svg?branch=master">
     <a href="https://github.com/arkworks-rs/algebra/blob/master/LICENSE-APACHE"><img src="https://img.shields.io/badge/license-APACHE-blue.svg"></a>
