@@ -69,9 +69,9 @@ debug-assertions = true
 debug = true
 
 [patch.crates-io]
-ark-ff = { path = "../ff" }
-ark-ec = { path = "../ec" }
-ark-poly = { path = "../poly" }
+ark-ff = { package = "tfhe-ark-ff", path = "../ff" }
+ark-ec = { package = "tfhe-ark-ec", path = "../ec" }
+ark-poly = { package = "tfhe-ark-poly", path = "../poly" }
 ark-serialize = { path = "../serialize" }
 ark-algebra-test-templates = { path = "../test-templates" }
 ark-algebra-bench-templates = { path = "../bench-templates" }
