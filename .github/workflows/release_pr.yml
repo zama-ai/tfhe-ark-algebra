@@ -24,4 +24,5 @@ jobs:
           cargo publish -p tfhe-ark-ff --token ${{ env.CRATES_TOKEN }} ${{ env.DRY_RUN }}
           cargo publish -p tfhe-ark-poly --token ${{ env.CRATES_TOKEN }} ${{ env.DRY_RUN }}
           cargo publish -p tfhe-ark-ec --token ${{ env.CRATES_TOKEN }} ${{ env.DRY_RUN }}
+          cd curves
           cargo publish -p tfhe-ark-bls12-381 --token ${{ env.CRATES_TOKEN }} ${{ env.DRY_RUN }}
