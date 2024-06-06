@@ -1,35 +1,27 @@
-name: Open a release PR
+name: Publish patched packages to crates.io
 on:
   workflow_dispatch:
     inputs:
-      version:
-        description: Version to release
-        required: true
-        type: choice
-        # Currently only alpha and patch releases are supported by this workflow, due to https://github.com/rust-lang/cargo/issues/4242
-        options: 
-          - alpha
-          - patch
-      base_branch:
-        description: Branch to target
-        required: true
-        type: string
-        default: 'releases'
+      dry_run:
+        description: "Dry-run"
+        type: boolean
+        default: true
 
 jobs:
-  make-release-pr:
+  make-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Install cargo-release
-        uses: taiki-e/install-action@v1
+      - name: Checkout
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
         with:
-          tool: cargo-release
+          fetch-depth: 0
 
-      - uses: actions/checkout@v3
-      - uses: cargo-bins/release-pr@v2
-        with:
-          pr-template-file: .github/release-pr-template.ejs
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          version: ${{ inputs.version }}
-          crate-release-all: true
-          base-branch: ${{ inputs.base_branch }} 
+      - name: Publish crate.io packages
+        env:
+          CRATES_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: |
+          cargo publish -p tfhe-ark-ff --token ${{ env.CRATES_TOKEN }} ${{ env.DRY_RUN }}
+          cargo publish -p tfhe-ark-poly --token ${{ env.CRATES_TOKEN }} ${{ env.DRY_RUN }}
+          cargo publish -p tfhe-ark-ec --token ${{ env.CRATES_TOKEN }} ${{ env.DRY_RUN }}
+          cargo publish -p tfhe-ark-bls12-381 --token ${{ env.CRATES_TOKEN }} ${{ env.DRY_RUN }}
