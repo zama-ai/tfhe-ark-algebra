@@ -2,10 +2,26 @@ name: Publish patched packages to crates.io
 on:
   workflow_dispatch:
     inputs:
-      dry_run:
-        description: "Dry-run"
-        type: boolean
-        default: true
+        dry_run:
+          description: "Dry-run"
+          type: boolean
+          default: true
+        ark_ff:
+          description: "Publish tfhe-ark-ff"
+          type: boolean
+          default: true
+        ark_poly:
+          description: "Publish tfhe-ark-poly"
+          type: boolean
+          default: true
+        ark_ec:
+          description: "Publish tfhe-ark-ec"
+          type: boolean
+          default: true
+        ark_bls:
+          description: "Publish tfhe-ark-bls12-381"
+          type: boolean
+          default: true
 
 jobs:
   make-release:
@@ -16,13 +32,35 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Publish crate.io packages
+      - name: Publish tfhe-ark-ff
+        if: inputs.ark_ff
         env:
           CRATES_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
           DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
         run: |
           cargo publish -p tfhe-ark-ff --token ${{ env.CRATES_TOKEN }} ${{ env.DRY_RUN }}
+
+      - name: Publish tfhe-ark-poly
+        if: inputs.ark_poly
+        env:
+          CRATES_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: |
           cargo publish -p tfhe-ark-poly --token ${{ env.CRATES_TOKEN }} ${{ env.DRY_RUN }}
+
+      - name: Publish tfhe-ark-ec
+        if: inputs.ark_ec
+        env:
+          CRATES_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: |
           cargo publish -p tfhe-ark-ec --token ${{ env.CRATES_TOKEN }} ${{ env.DRY_RUN }}
+
+      - name: Publish tfhe-ark-bls12-381
+        if: inputs.ark_bls
+        env:
+          CRATES_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: |
           cd curves
           cargo publish -p tfhe-ark-bls12-381 --token ${{ env.CRATES_TOKEN }} ${{ env.DRY_RUN }}
