@@ -18,7 +18,7 @@ exclude = ["curves/**"]
 resolver = "2"
 
 [workspace.package]
-version = "0.4.2"
+version = "0.4.3"
 authors = [ "arkworks contributors" ]
 homepage = "https://arkworks.rs"
 repository = "https://github.com/arkworks-rs/algebra"
@@ -36,7 +36,7 @@ dependent-version = "fix"
 
 [workspace.dependencies]
 ark-ec = { package = "tfhe-ark-ec", version = "0.4.2", path = "./ec", default-features = false }
-ark-ff = { package = "tfhe-ark-ff", version = "0.4.2", path = "./ff", default-features = false }
+ark-ff = { package = "tfhe-ark-ff", version = "0.4.3", path = "./ff", default-features = false }
 ark-ff-asm = { version = "0.4.2", path = "./ff-asm" }
 ark-ff-macros = { version = "0.4.2", path = "./ff-macros" }
 ark-poly = { package = "tfhe-ark-poly", version = "0.4.2", path = "./poly", default-features = false }
